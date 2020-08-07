@@ -58,7 +58,7 @@ fn fibonacci(&self, n: u32) -> u32 {
 # Capture Size
 | Capture Size           | Optick    | Microprofile | Superluminal |
 | ---------------------- | ---------:| ------------:| ------------:|
-| Small (~93k events)    | 1.1 MB    | 2.8 MB       | 52 MB        |
-| Medium (~2.7kk events) | 8.9 MB    | Failed       | 1347 MB      |
-| Large (~18.4kk events) | 56.2 MB   | Failed       | 3413 MB      |
+| Small (~93k events)    | 1 MB      | 3 MB         | 52 MB        |
+| Medium (~2.7kk events) | 9 MB      | Failed       | 1347 MB      |
+| Large (~18.4kk events) | 56 MB     | Failed       | 3413 MB      |
 
