@@ -22,11 +22,17 @@ fn fibonacci(&self, n: u32) -> u32 {
 }
 ```
 # Profilers
-| Name | Crate | Version |
-| ---- | ----- | ------- |
+| Name | Crate | Tested Version |
+| ---- | ----- | -------------- |
 | Optick | https://crates.io/crates/optick | optick = "1.3.4" |
 | Microprofile | https://crates.io/crates/microprofile | microprofile = "0.2.1" |
 | Superluminal | https://crates.io/crates/superluminal-perf | superluminal-perf = "0.1.1" |
+
+| Features               | Optick    | Microprofile | Superluminal |
+| ---------------------- | ---------:| ------------:| ------------:|
+| Instrumentation        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Sampling               | :heavy_check_mark: |                    | :heavy_check_mark: |
+
 
 
 # Test PC
