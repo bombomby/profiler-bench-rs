@@ -32,7 +32,9 @@ fn fibonacci(&self, n: u32) -> u32 {
 | Features               | Optick             | Microprofile       | Puffin             | Superluminal       |
 | ---------------------- | ------------------:| ------------------:| ------------------:| ------------------:|
 | Instrumentation        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Sampling               | :heavy_check_mark: | :cross_mark:       | :cross_mark:       | :heavy_check_mark: |
+| Scope Data Context     | :heavy_check_mark: | :x:                | :heavy_check_mark: | :x:                |
+| Sampling               | :heavy_check_mark: | :x:                | :x:                | :heavy_check_mark: |
+| Switch Contexts        | :heavy_check_mark: | :x:                | :x:                | :heavy_check_mark: |
 
 
 
