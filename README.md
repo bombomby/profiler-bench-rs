@@ -26,12 +26,13 @@ fn fibonacci(&self, n: u32) -> u32 {
 | ---- | ----- | -------------- |
 | Optick | https://crates.io/crates/optick | optick = "1.3.4" |
 | Microprofile | https://crates.io/crates/microprofile | microprofile = "0.2.1" |
+| Puffin | https://crates.io/crates/puffin | puffin = "0.3.0" |
 | Superluminal | https://crates.io/crates/superluminal-perf | superluminal-perf = "0.1.1" |
 
-| Features               | Optick    | Microprofile | Superluminal |
-| ---------------------- | ---------:| ------------:| ------------:|
-| Instrumentation        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Sampling               | :heavy_check_mark: |                    | :heavy_check_mark: |
+| Features               | Optick             | Microprofile       | Puffin             | Superluminal       |
+| ---------------------- | ------------------:| ------------------:| ------------------:| ------------------:|
+| Instrumentation        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Sampling               | :heavy_check_mark: | :cross_mark:       | :cross_mark:       | :heavy_check_mark: |
 
 
 
@@ -41,12 +42,12 @@ fn fibonacci(&self, n: u32) -> u32 {
 * HDD: Samsung SSD 970 EVO 1TB
 
 # Runtime Overhead
-| Runtime Overhead       | Optick    | Microprofile | Superluminal |
-| ---------------------- | ---------:| ------------:| ------------:|
-| Small (~93k events)    | 0.005 sec | 0.006 sec    | 0.864 sec    |
-| Medium (~2.7kk events) | 0.153 sec | Failed       | 23.940 sec   |
-| Large (~18.4kk events) | 0.955 sec | Failed       | 168.312 sec  |
-
+| Runtime Overhead       | Optick    | Microprofile | Puffin       | Superluminal |
+| ---------------------- | ---------:| ------------:| ------------:| ------------:|
+| Small (~93k events)    | 0.005 sec | 0.006 sec    | 0.036 sec    | 0.864 sec    |
+| Medium (~2.7kk events) | 0.153 sec | Failed       | 1.060 sec    | 23.940 sec   |
+| Large (~18.4kk events) | 0.955 sec | Failed       | 7.058 sec    | 168.312 sec  |
+ 
 # Capture Save Time
 | Capture Save Time      | Optick    | Microprofile | Superluminal |
 | ---------------------- | ---------:| ------------:| ------------:|
