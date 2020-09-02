@@ -102,6 +102,49 @@ impl Test for Microprofile {
     }
 }
 
+
+struct Tracy {}
+impl Test for Tracy {
+    fn fibonacci(&self, n: u32) -> u32 {
+        match n {
+            0 => 1,
+            1 => 1,
+            _ => self.fibonacci(n - 1) + self.fibonacci(n - 2),
+        }
+    }
+
+    fn run(&self, n: u32) {
+        loop {
+            tracy_rs::tracy_begin_frame!("MainThread");
+            let time = Instant::now();
+            self.fibonacci(n);
+            let run_duration = time.elapsed();
+            tracy_rs::tracy_end_frame!("MainThread");
+            println!("Tracy time: {:.2?}", run_duration);
+        }
+    }
+}
+
+struct Puffin {}
+impl Test for Puffin {
+    fn fibonacci(&self, n: u32) -> u32 {
+        puffin::profile_function!();
+        let res = match n {
+            0 => 1,
+            1 => 1,
+            _ => self.fibonacci(n - 1) + self.fibonacci(n - 2),
+        };
+        return res;
+    }
+
+    fn run(&self, n: u32) {
+        puffin::set_scopes_on(true);
+        let start = Instant::now();
+        self.fibonacci(n);
+        println!("Puffin time: {:.2?}", start.elapsed());
+    }
+}
+
 /// Usage: profiler-bench-rs optick 30
 pub fn main() {
     let args: Vec<String> = env::args().collect();
@@ -122,6 +165,8 @@ pub fn main() {
         "optick" => Optick {}.run(number),
         "superluminal" => Superluminal {}.run(number),
         "microprofile" => Microprofile {}.run(number),
+        "tracy" => Tracy {}.run(number),
+        "puffin" => Puffin {}.run(number),
         _ => println!("Can't find a test for {}!", profiler),
     }
 }

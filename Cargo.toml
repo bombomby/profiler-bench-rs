@@ -6,6 +6,9 @@ edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[features]
+profiler = ["tracy-rs/enable_profiler"]
+
 [dependencies]
 num_cpus = "0.2"
 
@@ -18,3 +21,10 @@ superluminal-perf = "0.1.0"
 
 # Microprofile
 microprofile = "0.2.1"
+
+# Tracy
+tracy-rs = "0.1.2"
+
+# Puffin
+puffin = "0.3.0"
+puffin-imgui = "0.3.0"
